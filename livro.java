@@ -16,4 +16,15 @@ public class livro {
     this.isbn = isbn;
     this.emprestado = false;
   }
+
+  public void imprimirAtributos() {
+    System.out.println("Título: " + this.titulo);
+    System.out.println("Autor: " + this.autor);
+    System.out.println("Editora: " + this.editora);
+    System.out.println("Ano: " + this.ano);
+    System.out.println("Edição: " + this.edicao);
+    System.out.println("ISBN: " + this.isbn);
+    System.out.println("Emprestado: " + (this.emprestado ? "Sim" : "Não"));
+    System.out.println();
+  }
 }

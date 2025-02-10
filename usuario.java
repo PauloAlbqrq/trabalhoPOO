@@ -8,4 +8,11 @@ public class usuario {
     this.cpf = cpf;
     this.telefone = telefone;
   }
+
+  public void imprimirAtributos() {
+    System.out.println("Nome: " + this.nome);
+    System.out.println("CPF: " + this.cpf);
+    System.out.println("Telefone: " + this.telefone);
+    System.out.println();
+  }
 }

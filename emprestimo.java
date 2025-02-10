@@ -10,4 +10,12 @@ public class emprestimo {
     this.dataEmprestimo = dataEmprestimo;
     this.dataDevolucao = dataDevolucao;
   }
+
+  public void imprimirAtributos() {
+    System.out.println("Livro: " + livro.titulo);
+    System.out.println("Usuário: " + usuario.nome);
+    System.out.println("Data de Empréstimo: " + dataEmprestimo);
+    System.out.println("Data de Devolução: " + dataDevolucao);
+    System.out.println();
+  }
 }
