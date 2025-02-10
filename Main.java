@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -92,14 +92,17 @@ public class Main {
           System.out.print("Digite o isbn do livro: ");
           int isbnLivro = scanner.nextInt();
 
-          livros.add(new livro(nomeLivro, autorLivro, editoraLivro, anoLivro, edicaoLivro, isbnLivro));
+          livros.add(
+              new livro(nomeLivro, autorLivro, editoraLivro, anoLivro, edicaoLivro, isbnLivro));
           System.out.println("Livro Registrado!");
 
           break;
         case 3:
           System.out.println("\nREGISTRAR EMPRESTIMO\n");
-          scanner.nextLine(); // evita que o scanner do cpf receba o /n deixado pelo ultimo nextLine e não
-                              // receba o cpf
+          scanner
+              .nextLine(); // evita que o scanner do cpf receba o /n deixado pelo ultimo nextLine e
+                           // não
+          // receba o cpf
           System.out.print("Digite o cpf do usuário: ");
           String cpfUsuarioReg = scanner.nextLine();
 
@@ -117,8 +120,12 @@ public class Main {
               System.out.print("Digite a data de devolução: ");
               String dataDevolucao = scanner.nextLine();
               livros.get(getIndexComISBN(isbnInput)).emprestado = true;
-              emprestimos.add(new emprestimo(livros.get(getIndexComISBN(isbnInput)),
-                  usuarios.get(getIndexComCPF(cpfUsuarioReg)), dataEmprestimo, dataDevolucao));
+              emprestimos.add(
+                  new emprestimo(
+                      livros.get(getIndexComISBN(isbnInput)),
+                      usuarios.get(getIndexComCPF(cpfUsuarioReg)),
+                      dataEmprestimo,
+                      dataDevolucao));
               System.out.println("Empréstimo Registrado!");
             } else {
               System.out.print("O livro não existe.");
@@ -133,7 +140,6 @@ public class Main {
         default:
           System.out.println("\nOPÇÃO INVÁLIDA\n");
           break;
-
       }
     }
   }
@@ -302,24 +308,16 @@ public class Main {
           scanner.nextLine();
           String cpfUsuarioEmp = scanner.nextLine();
 
-          if (checarCPF(cpfUsuarioEmp)) {
-            System.out.print("Digite o ISBN do livro: ");
-            int isbnEmp = scanner.nextInt();
+          System.out.print("Digite o ISBN do livro: ");
+          int isbnEmp = scanner.nextInt();
 
-            if (checarISBN(isbnEmp)) {
-              for (emprestimo emp : emprestimos) {
-                if (emp.usuario.cpf.equals(cpfUsuarioEmp) && emp.livro.isbn == isbnEmp) {
-                  emp.livro.emprestado = false;
-                  emprestimos.remove(emp);
-                  System.out.println("Empréstimo Deletado!");
-                  break;
-                }
-              }
-            } else {
-              System.out.println("Livro não encontrado.");
+          for (emprestimo emp : emprestimos) {
+            if (emp.usuario.cpf.equals(cpfUsuarioEmp) && emp.livro.isbn == isbnEmp) {
+              emp.livro.emprestado = false;
+              emprestimos.remove(emp);
+              System.out.println("Empréstimo Deletado!");
+              break;
             }
-          } else {
-            System.out.println("Usuário não encontrado.");
           }
           break;
         case 4:
@@ -392,7 +390,6 @@ public class Main {
         default:
           System.out.println("\nOPÇÃO INVÁLIDA\n");
           break;
-
       }
     }
   }
